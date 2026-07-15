@@ -47,8 +47,8 @@ body {
   color: var(--fg);
   font-family: var(--font-body);
   /* tweak typography here */
-  letter-spacing: 0.01em; /* letter spacing */
-  line-height: 1.55; /* line spacing (leading-[1.5] in the JSX is 1.625; this only applies where that class is absent) */
+  letter-spacing: 0.03em; /* letter spacing */
+  line-height: 1.35; /* line spacing (leading-[1.5] in the JSX is 1.625; this only applies where that class is absent) */
 }
 
 /* Frosted card: no rims, no sheen — just a heavy blur, a slightly

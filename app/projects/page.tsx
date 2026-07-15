@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <PageShell title="Projects">
       {/* Add your projects here */}
-      <p className="mb-4 text-[15px] leading-[1.5]">
+      <p className="mb-4 text-[14px] leading-[1.35]">
         Placeholder — things I&apos;ve built.
       </p>
     </PageShell>
