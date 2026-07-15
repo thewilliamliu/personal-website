@@ -41,7 +41,7 @@
 }
 :root[data-font='serif'] h1 {
   font-size: 21px !important;
-  font-weight: 550 !important;
+  font-weight: 500 !important;
 }
 
 ::selection {
