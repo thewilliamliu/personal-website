@@ -9,7 +9,7 @@ const li = 'mb-2.5 font-[425] text-[13px] leading-[1.32]'
 const links = {
   benefitHumanity: 'https://darioamodei.com/essay/machines-of-loving-grace',
   narcissism: 'https://www.youtube.com/watch?v=F3fCktnkBbc',
-  jobs: 'https://www.youtube.com/watch?v=kYfNvmF0Bqw',
+  jobs: 'https://youtu.be/CeSAjK2CBEA',
   collison: 'https://patrickcollison.com/advice',
   voyager: 'https://www.youtube.com/watch?v=NAN1kt4SG9E',
   game4: 'https://www.youtube.com/watch?v=dcf8UW7cMOI',
