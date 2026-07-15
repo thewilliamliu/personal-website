@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <PageShell title="Travel Photography">
       {/* Add photos here (put images in /public and use next/image) */}
-      <p className="mb-4 text-[13px] leading-[1.3]">
+      <p className="mb-4 font-[425] text-[13px] leading-[1.32]">
         Placeholder — photos from places I&apos;ve been.
       </p>
     </PageShell>

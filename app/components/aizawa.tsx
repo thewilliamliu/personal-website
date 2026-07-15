@@ -186,12 +186,13 @@ export default function AizawaBackground() {
         const sx = ox + rx * scale
         const sy = oy - tz * scale
         let alpha = Math.max(0.12, Math.min(0.7, (ty + 2) / 4))
-        // Dim particles near the center so they don't fight the text,
-        // while staying bright toward the edges
+        // Dim particles across the whole text block (flat, like the
+        // center fade), easing back to full brightness at the edges
         const ndx = (sx - width / 2) / (width * 0.24)
         const ndy = (sy - height / 2) / (height * 0.3)
         const d2 = ndx * ndx + ndy * ndy
-        if (d2 < 1) alpha *= 0.25 + 0.75 * d2
+        if (d2 < 1) alpha *= 0.25
+        else if (d2 < 1.7) alpha *= 0.25 + 0.75 * ((d2 - 1) / 0.7)
         ctx.fillStyle = `rgba(${colors.dot}, ${alpha})`
         const size = ty > 0 ? 1.7 : 1
         ctx.fillRect(sx, sy, size, size)
