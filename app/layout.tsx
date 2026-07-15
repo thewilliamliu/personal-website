@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   icons: {
-    icon: "/apple-touch-icon.png",
+    icon: "/public/favicon.png",
     apple: "/apple-touch-icon.png",
   },
   robots: {
