@@ -22,12 +22,12 @@ export default function AttractorPage() {
       <Controls />
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
-        <section className="glass-card w-full max-w-lg rounded-2xl p-7 md:p-8">
-          <h1 className="mb-4 text-base font-medium tracking-tight">
+        <section className="glass-card w-full max-w-lg rounded-[28px] p-8 md:p-10">
+          <h1 className="mb-4 text-xl font-bold tracking-tight">
             The Aizawa Attractor
           </h1>
 
-          <p className="mb-3 text-[13px] leading-relaxed">
+          <p className="mb-4 text-[15px] leading-relaxed">
             The animation on the homepage is the Aizawa attractor, a strange
             attractor: a chaotic system whose trajectories never repeat or
             settle down, yet stay confined to this sphere-like shape forever.
@@ -40,7 +40,7 @@ export default function AttractorPage() {
             <Eq>dz/dt = c + a·z − z³/3 − (x² + y²)(1 + e·z) + f·z·x³</Eq>
           </div>
 
-          <p className="mb-3 text-[13px] leading-relaxed">
+          <p className="mb-4 text-[15px] leading-relaxed">
             with constants a = 0.95, b = 0.7, c = 0.6, d = 3.5, e = 0.25,
             f = 0.1. The first two equations spin points around the vertical
             axis while pushing them outward or inward depending on height; the
@@ -48,7 +48,7 @@ export default function AttractorPage() {
             you see.
           </p>
 
-          <p className="mb-5 text-[13px] leading-relaxed">
+          <p className="mb-5 text-[15px] leading-relaxed">
             The system is chaotic: two particles that start almost together
             drift apart exponentially fast, which is why the swarm smears into
             a cloud instead of marching in lockstep. Every dot here is just

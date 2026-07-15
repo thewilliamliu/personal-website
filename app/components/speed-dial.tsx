@@ -44,7 +44,10 @@ export default function SpeedDial() {
   const angle = -120 + ((speed - MIN) / (MAX - MIN)) * 240
 
   return (
-    <div className="flex flex-col items-center gap-1.5 select-none">
+    <div className="flex flex-row items-center gap-2 select-none">
+      <span className="font-mono text-[10px] opacity-60">
+        {speed.toFixed(1)}x
+      </span>
       <div
         role="slider"
         aria-label="Animation speed (click for details)"
@@ -60,7 +63,7 @@ export default function SpeedDial() {
           if (ev.key === 'ArrowDown') setAndBroadcast(speed - 0.25)
           if (ev.key === 'Enter') router.push('/attractor')
         }}
-        className="glass-card flex h-12 w-12 cursor-pointer items-center justify-center rounded-full transition-transform hover:scale-105"
+        className="ctrl flex h-9 w-9 cursor-pointer items-center justify-center rounded-full transition-transform hover:scale-105"
         title="Drag to change speed · click to see the math"
       >
         <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
@@ -93,9 +96,6 @@ export default function SpeedDial() {
           <circle cx="17" cy="17" r="1.8" fill="currentColor" />
         </svg>
       </div>
-      <span className="font-mono text-[10px] opacity-60">
-        {speed.toFixed(1)}x
-      </span>
     </div>
   )
 }

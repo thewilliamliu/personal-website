@@ -36,7 +36,7 @@ export default function Controls({ showDial = false }: { showDial?: boolean }) {
   }
 
   const btn =
-    'glass-card flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-[13px] transition-transform hover:scale-105'
+    'ctrl flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-[13px] transition-transform hover:scale-105'
 
   return (
     <div className="fixed right-6 top-6 z-10 flex flex-row items-start gap-2">
@@ -79,7 +79,7 @@ export default function Controls({ showDial = false }: { showDial?: boolean }) {
           fontFamily:
             font === 'sans'
               ? "'Newsreader Variable', Georgia, serif"
-              : "'Inter Variable', system-ui, sans-serif",
+              : "-apple-system, BlinkMacSystemFont, sans-serif",
         }}
       >
         Aa

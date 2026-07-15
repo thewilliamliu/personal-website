@@ -16,8 +16,8 @@ export default function PageShell({
       <Controls />
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
-        <section className="glass-card w-full max-w-lg overflow-y-auto max-h-[85vh] rounded-2xl p-7 md:p-8">
-          <h1 className="mb-4 text-base font-medium tracking-tight">{title}</h1>
+        <section className="glass-card w-full max-w-lg overflow-y-auto max-h-[85vh] rounded-[28px] p-8 md:p-10">
+          <h1 className="mb-4 text-xl font-bold tracking-tight">{title}</h1>
           {children}
           <Link
             href="/"
