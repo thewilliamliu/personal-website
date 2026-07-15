@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Controls from 'app/components/controls'
 import ScrollCard from 'app/components/scroll-card'
+import SetSpeed from 'app/components/set-speed'
 
 // Shared layout: attractor background + centered card with scroll hint.
 export default function PageShell({
@@ -13,6 +14,7 @@ export default function PageShell({
   return (
     <>
       <Controls />
+      <SetSpeed value={0.1} />
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
         <section className="w-full max-w-lg">

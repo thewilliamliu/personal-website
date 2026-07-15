@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Controls from 'app/components/controls'
+import SetSpeed from 'app/components/set-speed'
 
 const link = 'lnk'
 
@@ -7,6 +8,7 @@ export default function Page() {
   return (
     <>
       <Controls showDial />
+      <SetSpeed value={1} />
       {/* Scroll runway: scrolling rotates the attractor while the card stays put */}
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Controls from 'app/components/controls'
+import SetSpeed from 'app/components/set-speed'
 
 export const metadata = {
   title: 'The Aizawa Attractor',
@@ -18,6 +19,7 @@ export default function AttractorPage() {
   return (
     <>
       <Controls />
+      <SetSpeed value={0.1} />
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
         <section className="w-full max-w-lg p-8 md:p-10">

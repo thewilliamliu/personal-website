@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 const MIN = 0.1
@@ -16,9 +16,19 @@ export default function SpeedDial() {
   const startSpeed = useRef(1)
   const router = useRouter()
 
+  // Stay in sync with speed set elsewhere (e.g. per-page defaults)
+  useEffect(() => {
+    const w = window as unknown as { __aizawaSpeed?: number }
+    if (typeof w.__aizawaSpeed === 'number') setSpeed(w.__aizawaSpeed)
+    const onSpeed = (ev: Event) => setSpeed((ev as CustomEvent<number>).detail)
+    window.addEventListener('aizawa-speed', onSpeed)
+    return () => window.removeEventListener('aizawa-speed', onSpeed)
+  }, [])
+
   const setAndBroadcast = (v: number) => {
     const clamped = Math.min(MAX, Math.max(MIN, v))
     setSpeed(clamped)
+    ;(window as unknown as { __aizawaSpeed?: number }).__aizawaSpeed = clamped
     window.dispatchEvent(new CustomEvent('aizawa-speed', { detail: clamped }))
   }
 
