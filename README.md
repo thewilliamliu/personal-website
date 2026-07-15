@@ -1,42 +1,28 @@
-# Portfolio Blog Starter
+# personal website
 
-This is a porfolio site template complete with a blog. Includes:
+my corner of the internet, live at [wlmliu.com](https://www.wlmliu.com). next.js + tailwind, deployed on vercel.
 
-- MDX and Markdown support
-- Optimized for SEO (sitemap, robots, JSON-LD schema)
-- RSS Feed
-- Dynamic OG images
-- Syntax highlighting
-- Tailwind v4
-- Vercel Speed Insights / Web Analytics
-- Geist font
+## the background
 
-## Demo
+the animation is the [aizawa attractor](https://www.wlmliu.com/attractor) — 3,000 particles integrating three coupled ODEs on a 2d canvas, every frame. a few things i learned getting it to look right:
 
-https://portfolio-blog-starter.vercel.app
+- naive seeding makes the swarm collapse into a thin filament (chaos synchronizes everything you start close together). instead, a 60k-step orbit is precomputed and particles are scattered uniformly along it, so the shape always has volume.
+- scrolling doesn't move the page — it tilts the camera. the text stays put while the attractor tours from side-on to top-down.
+- particles dim to ~25% inside an ellipse around the text so the type stays readable without a card behind it. earlier versions used a frosted glass box; killing it was the single biggest visual improvement.
 
-## How to Use
+## design choices
 
-You can choose from one of the following two methods to use this repository:
+- **no boxes.** text sits directly on the canvas. contrast comes from dimming the particles, not from drawing containers.
+- **two fonts, one toggle.** system sans (sf pro on apple devices) or lora, each with its own size/leading/tracking since serifs render smaller at equal px. preference persists in localStorage and applies before first paint to avoid a flash.
+- **warm, not neutral.** dark mode is `#171412` (brown-black), light mode is a grayed cream. pure `#000`/`#fff` felt sterile.
+- **controls, not chrome.** a speed dial (drag for fine control, click to cycle presets), a ∫ button explaining the math, theme and font toggles. top-right on desktop, bottom-center on mobile. internal pages slow the animation to 0.1x so it doesn't compete with reading.
+- **fonts self-hosted** via fontsource — no google fonts request, builds work offline.
 
-### One-Click Deploy
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/blog&project-name=blog&repository-name=blog)
-
-### Clone and Deploy
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
+## running it
 
 ```bash
-pnpm create next-app --example https://github.com/vercel/examples/tree/main/solutions/blog blog
+npm install
+npm run dev
 ```
 
-Then, run Next.js in development mode:
-
-```bash
-pnpm dev
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/templates) ([Documentation](https://nextjs.org/docs/app/building-your-application/deploying)).
+everything content-wise lives in `app/` — one file per page, plain jsx, no cms.
