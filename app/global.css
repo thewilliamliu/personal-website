@@ -16,8 +16,10 @@ html {
 }
 
 .glass-card {
-  background: rgba(18, 18, 20, 0.45);
-  backdrop-filter: blur(22px) saturate(120%);
-  -webkit-backdrop-filter: blur(22px) saturate(120%);
+  /* Justin-style frosted card: mostly opaque dark fill + blur,
+     so text stays crisp over the animation */
+  background: rgba(22, 22, 24, 0.82);
+  backdrop-filter: blur(24px) saturate(120%);
+  -webkit-backdrop-filter: blur(24px) saturate(120%);
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
 }
