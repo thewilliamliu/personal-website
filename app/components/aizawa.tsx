@@ -185,7 +185,13 @@ export default function AizawaBackground() {
 
         const sx = ox + rx * scale
         const sy = oy - tz * scale
-        const alpha = Math.max(0.12, Math.min(0.7, (ty + 2) / 4))
+        let alpha = Math.max(0.12, Math.min(0.7, (ty + 2) / 4))
+        // Dim particles near the center so they don't fight the text,
+        // while staying bright toward the edges
+        const ndx = (sx - width / 2) / (width * 0.24)
+        const ndy = (sy - height / 2) / (height * 0.3)
+        const d2 = ndx * ndx + ndy * ndy
+        if (d2 < 1) alpha *= 0.25 + 0.75 * d2
         ctx.fillStyle = `rgba(${colors.dot}, ${alpha})`
         const size = ty > 0 ? 1.7 : 1
         ctx.fillRect(sx, sy, size, size)
