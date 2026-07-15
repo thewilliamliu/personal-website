@@ -1,6 +1,4 @@
-import Link from 'next/link'
-import Controls from 'app/components/controls'
-import SetSpeed from 'app/components/set-speed'
+import PageShell from 'app/components/page-shell'
 
 export const metadata = {
   title: 'The Aizawa Attractor',
@@ -17,15 +15,7 @@ function Eq({ children }: { children: React.ReactNode }) {
 
 export default function AttractorPage() {
   return (
-    <>
-      <Controls />
-      <SetSpeed value={0.1} />
-      <div aria-hidden="true" className="h-[400vh]" />
-      <main className="fixed inset-0 flex items-center justify-center p-6">
-        <section className="w-full max-w-lg p-8 md:p-10">
-          <h1 className="mb-3 text-[17px] font-semibold ">
-            The Aizawa Attractor
-          </h1>
+    <PageShell title="The Aizawa Attractor">
 
           <p className="mb-4 font-[425] text-[13px] leading-[1.32]">
             The animation in the background is the Aizawa attractor, a strange
@@ -56,11 +46,6 @@ export default function AttractorPage() {
             per second.
           </p>
 
-          <Link href="/" className="lnk text-[13px]">
-            ← back home
-          </Link>
-        </section>
-      </main>
-    </>
+    </PageShell>
   )
 }

@@ -1,20 +1,20 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
 
 const MIN = 0.1
 const MAX = 3
 
+const PRESETS = [0.5, 1, 2, 3]
+
 // A small circular dial. Drag up/down to change the animation speed;
-// a plain click (no drag) opens the /attractor page.
+// a plain click (no drag) cycles through preset speeds.
 export default function SpeedDial() {
   const [speed, setSpeed] = useState(1)
   const dragging = useRef(false)
   const moved = useRef(false)
   const startY = useRef(0)
   const startSpeed = useRef(1)
-  const router = useRouter()
 
   // Stay in sync with speed set elsewhere (e.g. per-page defaults)
   useEffect(() => {
@@ -47,7 +47,11 @@ export default function SpeedDial() {
   }
   const onPointerUp = () => {
     dragging.current = false
-    if (!moved.current) router.push('/attractor')
+    if (!moved.current) {
+      // cycle to the next preset
+      const next = PRESETS.find((v) => v > speed + 0.001) ?? PRESETS[0]
+      setAndBroadcast(next)
+    }
   }
 
   // Needle angle: -120° at MIN, +120° at MAX
@@ -60,7 +64,7 @@ export default function SpeedDial() {
       </span>
       <div
         role="slider"
-        aria-label="Animation speed (click for details)"
+        aria-label="Animation speed (click to cycle presets)"
         aria-valuemin={MIN}
         aria-valuemax={MAX}
         aria-valuenow={Math.round(speed * 100) / 100}
@@ -71,10 +75,9 @@ export default function SpeedDial() {
         onKeyDown={(ev) => {
           if (ev.key === 'ArrowUp') setAndBroadcast(speed + 0.25)
           if (ev.key === 'ArrowDown') setAndBroadcast(speed - 0.25)
-          if (ev.key === 'Enter') router.push('/attractor')
         }}
         className="ctrl flex h-9 w-9 cursor-pointer items-center justify-center rounded-full transition-transform hover:scale-105"
-        title="Drag to change speed · click to see the math"
+        title="Drag to change speed · click to cycle presets"
       >
         <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
           {/* tick marks */}
