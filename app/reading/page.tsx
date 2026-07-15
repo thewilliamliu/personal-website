@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <PageShell title="Reading List">
       {/* Add your books here */}
-      <p className="mb-4 text-[15px] leading-relaxed">
+      <p className="mb-4 text-[15px] leading-[1.5]">
         Placeholder — what I&apos;m reading now, and what I&apos;ve finished.
       </p>
     </PageShell>
