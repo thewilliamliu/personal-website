@@ -10,10 +10,11 @@ const d = 3.5
 const e = 0.25
 const f = 0.1
 
-// One long precomputed orbit, drawn as a continuous curve
-const ORBIT_POINTS = 24000
-const DT = 0.004
+const DT = 0.002 // slow base speed
+const NUM_PARTICLES = 3000
 
+// Other components can set the speed multiplier:
+// window.dispatchEvent(new CustomEvent('aizawa-speed', { detail: 1.5 }))
 export default function AizawaBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -26,6 +27,12 @@ export default function AizawaBackground() {
     let width = 0
     let height = 0
     let raf = 0
+    let speed = 1
+
+    const onSpeed = (ev: Event) => {
+      speed = (ev as CustomEvent<number>).detail
+    }
+    window.addEventListener('aizawa-speed', onSpeed)
 
     const resize = () => {
       width = window.innerWidth
@@ -38,48 +45,35 @@ export default function AizawaBackground() {
     resize()
     window.addEventListener('resize', resize)
 
-    // Precompute the orbit
-    const ox3 = new Float32Array(ORBIT_POINTS)
-    const oy3 = new Float32Array(ORBIT_POINTS)
-    const oz3 = new Float32Array(ORBIT_POINTS)
-    {
-      let x = 0.1
-      let y = 0
-      let z = 0
-      // burn in
-      for (let n = 0; n < 5000; n++) {
-        const nx = x + DT * ((z - b) * x - d * y)
-        const ny = y + DT * (d * x + (z - b) * y)
-        const nz =
-          z +
-          DT *
-            (c +
-              a * z -
-              (z * z * z) / 3 -
-              (x * x + y * y) * (1 + e * z) +
-              f * z * x * x * x)
-        x = nx
-        y = ny
-        z = nz
-      }
-      for (let n = 0; n < ORBIT_POINTS; n++) {
-        const nx = x + DT * ((z - b) * x - d * y)
-        const ny = y + DT * (d * x + (z - b) * y)
-        const nz =
-          z +
-          DT *
-            (c +
-              a * z -
-              (z * z * z) / 3 -
-              (x * x + y * y) * (1 + e * z) +
-              f * z * x * x * x)
-        x = nx
-        y = ny
-        z = nz
-        ox3[n] = x
-        oy3[n] = y
-        oz3[n] = z - 0.6
-      }
+    const px = new Float32Array(NUM_PARTICLES)
+    const py = new Float32Array(NUM_PARTICLES)
+    const pz = new Float32Array(NUM_PARTICLES)
+    for (let i = 0; i < NUM_PARTICLES; i++) {
+      px[i] = 0.1 + Math.random() * 0.1
+      py[i] = Math.random() * 0.1
+      pz[i] = Math.random() * 0.1
+    }
+    const step = (i: number, dt: number) => {
+      const x = px[i]
+      const y = py[i]
+      const z = pz[i]
+      px[i] = x + dt * ((z - b) * x - d * y)
+      py[i] = y + dt * (d * x + (z - b) * y)
+      pz[i] =
+        z +
+        dt *
+          (c +
+            a * z -
+            (z * z * z) / 3 -
+            (x * x + y * y) * (1 + e * z) +
+            f * z * x * x * x)
+    }
+    // Burn in with a large dt, then desynchronize
+    for (let n = 0; n < 500; n++)
+      for (let i = 0; i < NUM_PARTICLES; i++) step(i, 0.01)
+    for (let i = 0; i < NUM_PARTICLES; i++) {
+      const extra = Math.floor(Math.random() * 800)
+      for (let n = 0; n < extra; n++) step(i, 0.01)
     }
 
     // Scroll drives the viewing angle
@@ -103,12 +97,13 @@ export default function AizawaBackground() {
     const draw = () => {
       smoothT += (scrollT - smoothT) * 0.06
 
-      ctx.fillStyle = '#0a0a0a'
+      // Trail fade
+      ctx.fillStyle = 'rgba(10, 10, 10, 0.18)'
       ctx.fillRect(0, 0, width, height)
 
       const scale = Math.min(width, height) * 0.42
-      const cx = width / 2
-      const cy = height / 2
+      const ox = width / 2
+      const oy = height / 2
 
       const tilt = 0.2 + smoothT * 1.5
       const angle = spin + smoothT * Math.PI * 2
@@ -117,30 +112,36 @@ export default function AizawaBackground() {
       const sinA = Math.sin(angle)
       const cosT = Math.cos(tilt)
       const sinT = Math.sin(tilt)
+      const dt = DT * speed
 
-      ctx.lineWidth = 0.6
-      ctx.strokeStyle = 'rgba(225, 230, 240, 0.16)'
-      ctx.beginPath()
-      for (let i = 0; i < ORBIT_POINTS; i++) {
-        const rx = ox3[i] * cosA - oy3[i] * sinA
-        const ry = ox3[i] * sinA + oy3[i] * cosA
-        const tz = ry * sinT + oz3[i] * cosT
-        const sx = cx + rx * scale
-        const sy = cy - tz * scale
-        if (i === 0) ctx.moveTo(sx, sy)
-        else ctx.lineTo(sx, sy)
+      for (let i = 0; i < NUM_PARTICLES; i++) {
+        step(i, dt)
+        const rx = px[i] * cosA - py[i] * sinA
+        const ry = px[i] * sinA + py[i] * cosA
+        const rz = pz[i] - 0.6
+        const ty = ry * cosT - rz * sinT
+        const tz = ry * sinT + rz * cosT
+
+        const sx = ox + rx * scale
+        const sy = oy - tz * scale
+        const alpha = Math.max(0.12, Math.min(0.7, (ty + 2) / 4))
+        ctx.fillStyle = `rgba(225, 230, 240, ${alpha})`
+        const size = ty > 0 ? 1.7 : 1
+        ctx.fillRect(sx, sy, size, size)
       }
-      ctx.stroke()
 
-      spin += 0.00024 // ~30% of previous speed
+      spin += 0.00024 * speed
       if (!prefersReduced) raf = requestAnimationFrame(draw)
     }
+    ctx.fillStyle = '#0a0a0a'
+    ctx.fillRect(0, 0, width, height)
     draw()
 
     return () => {
       cancelAnimationFrame(raf)
       window.removeEventListener('resize', resize)
       window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('aizawa-speed', onSpeed)
     }
   }, [])
 

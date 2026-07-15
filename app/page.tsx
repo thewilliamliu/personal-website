@@ -1,9 +1,11 @@
 import AizawaBackground from 'app/components/aizawa'
+import SpeedDial from 'app/components/speed-dial'
 
 export default function Page() {
   return (
     <>
       <AizawaBackground />
+      <SpeedDial />
       {/* Scroll runway: scrolling rotates the attractor while the card stays put */}
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
