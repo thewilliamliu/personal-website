@@ -35,6 +35,22 @@ export const metadata: Metadata = {
 // Apply saved theme/font before first paint to avoid a flash
 const initScript = `(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;var f=localStorage.getItem('font');if(f)document.documentElement.dataset.font=f;}catch(e){}})()`
 
+// Structured data so Google understands who this site is about
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'William Liu',
+  url: baseUrl,
+  affiliation: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Princeton University',
+  },
+  sameAs: [
+    'https://github.com/thewilliamliu',
+    'https://thewilliamliu.substack.com',
+  ],
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -45,6 +61,10 @@ export default function RootLayout({
     <html lang="en" data-font="serif" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: initScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </head>
       <body className="antialiased">
         {/* Mounted in the layout so it persists across page navigation */}
