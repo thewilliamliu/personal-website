@@ -63,9 +63,14 @@ export default function Page() {
               coursework
             </Link>{' '}
             and{' '}
-            <Link href="/projects" className={link}>
+            <a
+              href="https://github.com/thewilliamliu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={link}
+            >
               projects
-            </Link>
+            </a>
             .
           </p>
 
