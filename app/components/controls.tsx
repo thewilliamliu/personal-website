@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import SpeedDial from 'app/components/speed-dial'
 
 // Top-right control cluster: speed dial (optional) with a "see the math"
@@ -38,19 +39,16 @@ export default function Controls({ showDial = false }: { showDial?: boolean }) {
     'glass-card flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-[13px] transition-transform hover:scale-105'
 
   return (
-    <div className="fixed right-6 top-6 z-10 flex flex-col items-center gap-2">
-      {showDial && (
-        <div className="group relative">
-          <SpeedDial />
-          {/* hover popup */}
-          <div
-            role="tooltip"
-            className="glass-card pointer-events-none absolute right-full top-2 mr-3 whitespace-nowrap rounded-lg px-3 py-1.5 text-[11px] opacity-0 transition-opacity duration-150 group-hover:opacity-100"
-          >
-            click to see the math of the background
-          </div>
-        </div>
-      )}
+    <div className="fixed right-6 top-6 z-10 flex flex-row items-start gap-2">
+      {showDial && <SpeedDial />}
+      <Link
+        href="/attractor"
+        className={btn}
+        aria-label="The math behind the background"
+        title="The math behind the background"
+      >
+        <span className="text-[15px] leading-none">∫</span>
+      </Link>
       <button
         type="button"
         onClick={toggleTheme}

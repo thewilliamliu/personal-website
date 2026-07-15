@@ -31,7 +31,7 @@ export default function AizawaBackground() {
 
     // Theme-aware colors
     const themes = {
-      dark: { bg: '#1a1a1a', trail: 'rgba(26, 26, 26, 0.18)', dot: '225, 230, 240' },
+      dark: { bg: '#121212', trail: 'rgba(18, 18, 18, 0.18)', dot: '225, 230, 240' },
       light: { bg: '#f6f1e7', trail: 'rgba(246, 241, 231, 0.18)', dot: '70, 58, 45' },
     }
     let colors =
