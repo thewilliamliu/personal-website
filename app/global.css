@@ -29,6 +29,21 @@
   --font-body: 'Newsreader Variable', Georgia, serif;
 }
 
+/* Serif mode gets its own typography: Newsreader runs small and
+   tight, so bump size/leading and drop the extra tracking */
+:root[data-font='serif'] body {
+  letter-spacing: 0;
+}
+:root[data-font='serif'] p {
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+  font-weight: 430 !important;
+}
+:root[data-font='serif'] h1 {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+}
+
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
