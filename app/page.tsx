@@ -1,5 +1,9 @@
+import Link from 'next/link'
 import AizawaBackground from 'app/components/aizawa'
 import SpeedDial from 'app/components/speed-dial'
+
+const link =
+  'underline decoration-white/50 underline-offset-4 transition-opacity hover:opacity-80'
 
 export default function Page() {
   return (
@@ -14,41 +18,70 @@ export default function Page() {
             William Liu
           </h1>
 
-          {/* Replace this placeholder with your real bio text */}
           <p className="mb-3 text-sm leading-relaxed">
-            I&apos;m a student interested in software engineering and
-            quantitative finance. This is where a short intro about you goes —
-            what you&apos;re working on, where you study, what you care about.
-          </p>
-          <p className="mb-5 text-sm leading-relaxed">
-            Second paragraph placeholder — interests, projects, or anything
-            else worth sharing.
+            I&apos;m an undergrad studying mathematics at Princeton. Recently,
+            I&apos;ve been learning a lot about knot theory, ML, graphs, and
+            market-making.
           </p>
 
-          <div className="flex gap-5 text-xs">
+          <p className="mb-3 text-sm leading-relaxed">
+            Big picture, I&apos;m excited about technological advancement, and
+            I aim to be a part of it. My hope is that this site can be a place
+            where the resume steps back and my more overarching ideas come
+            forward.{' '}
+            <Link href="/inspirations" className={link}>
+              Here
+            </Link>{' '}
+            are a list of things that inspire me.
+          </p>
+
+          <p className="mb-3 text-sm leading-relaxed">
+            Previously, I was a nationally ranked debater and a YoungArts
+            winner in classical violin. Don&apos;t know whether it was the
+            chicken or the egg that came first, but I became pretty interested
+            in global affairs, philosophy, and music during this time.
+          </p>
+
+          <p className="mb-3 text-sm leading-relaxed">
+            In my spare hours, I chip away at my{' '}
+            <Link href="/reading" className={link}>
+              reading list
+            </Link>
+            . I also enjoy pickup basketball and{' '}
+            <Link href="/photography" className={link}>
+              travel photography
+            </Link>
+            .
+          </p>
+
+          <p className="mb-3 text-sm leading-relaxed">
+            You can{' '}
             <a
-              className="underline underline-offset-4 text-white decoration-white/50 transition-opacity hover:opacity-80"
-              href="mailto:realwilliamliu@gmail.com"
-            >
-              Email
-            </a>
-            <a
-              className="underline underline-offset-4 text-white decoration-white/50 transition-opacity hover:opacity-80"
-              href="https://www.linkedin.com/"
+              href="https://thewilliamliu.substack.com"
               target="_blank"
               rel="noopener noreferrer"
+              className={link}
             >
-              LinkedIn
-            </a>
-            <a
-              className="underline underline-offset-4 text-white decoration-white/50 transition-opacity hover:opacity-80"
-              href="https://github.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-          </div>
+              read my writing
+            </a>{' '}
+            on Substack. For my technical skills, see my{' '}
+            <Link href="/coursework" className={link}>
+              coursework
+            </Link>{' '}
+            and{' '}
+            <Link href="/projects" className={link}>
+              projects
+            </Link>
+            .
+          </p>
+
+          <p className="mb-5 text-sm leading-relaxed">
+            I am currently based in <strong>New York, NY</strong>.{' '}
+            <a href="mailto:williamliu@princeton.edu" className={link}>
+              Reach out
+            </a>{' '}
+            — would love to grab coffee and talk about the future.
+          </p>
 
           <p className="mt-7 text-[11px] text-white/70">
             © {new Date().getFullYear()} William Liu
