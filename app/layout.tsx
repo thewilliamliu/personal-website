@@ -37,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    {/* suppressHydrationWarning: theme/font attrs are set pre-paint from localStorage */}
+    // suppressHydrationWarning: theme/font attrs are set pre-paint from localStorage
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: initScript }} />
