@@ -32,7 +32,7 @@ export default function ScrollCard({
     <div className="relative">
       <div
         ref={ref}
-        className="max-h-[82vh] overflow-y-auto p-5 md:max-h-[85vh] md:p-10"
+        className="max-h-[calc(100dvh-8.5rem)] overflow-y-auto p-5 md:max-h-[85vh] md:p-10"
         style={
           more
             ? {
