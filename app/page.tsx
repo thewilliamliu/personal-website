@@ -43,11 +43,7 @@ export default function Page() {
             <Link href="/reading" className={link}>
               reading list
             </Link>
-            . I also enjoy pickup basketball and{' '}
-            <Link href="/photography" className={link}>
-              travel photography
-            </Link>
-            .
+            . I also enjoy pickup basketball and travel photography.
           </p>
 
           <p className="mb-4 font-[425] text-[13px] leading-[1.32]">
