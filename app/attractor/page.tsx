@@ -20,7 +20,7 @@ export default function AttractorPage() {
       <AizawaBackground />
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
-        <section className="glass-card w-full max-w-2xl rounded-2xl p-7 md:p-8 text-white">
+        <section className="glass-card w-full max-w-sm rounded-2xl p-7 md:p-8 text-white">
           <h1 className="mb-4 text-base font-medium tracking-tight">
             The Aizawa Attractor
           </h1>

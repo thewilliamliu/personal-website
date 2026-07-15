@@ -13,7 +13,7 @@ export default function Page() {
       {/* Scroll runway: scrolling rotates the attractor while the card stays put */}
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
-        <section className="glass-card w-full max-w-2xl rounded-2xl p-7 md:p-8 text-white">
+        <section className="glass-card w-full max-w-sm rounded-2xl p-7 md:p-8 text-white">
           <h1 className="mb-4 text-base font-medium tracking-tight">
             William Liu
           </h1>
@@ -26,20 +26,19 @@ export default function Page() {
 
           <p className="mb-3 text-[13px] leading-relaxed">
             Big picture, I&apos;m excited about technological advancement, and
-            I aim to be a part of it. My hope is that this site can be a place
-            where the resume steps back and my more overarching ideas come
-            forward.{' '}
+            I aim to be a part of it. You can learn about what I want to do
+            with my life{' '}
             <Link href="/inspirations" className={link}>
-              Here
-            </Link>{' '}
-            are a list of things that inspire me.
+              here
+            </Link>
+            .
           </p>
 
           <p className="mb-3 text-[13px] leading-relaxed">
             Previously, I was a nationally ranked debater and a YoungArts
             winner in classical violin. Don&apos;t know whether it was the
-            chicken or the egg that came first, but I became pretty interested
-            in global affairs, philosophy, and music during this time.
+            chicken or the egg that came first, but I delved quite deeply into
+            global affairs, philosophy, and music during this time.
           </p>
 
           <p className="mb-3 text-[13px] leading-relaxed">
@@ -75,7 +74,7 @@ export default function Page() {
             .
           </p>
 
-          <p className="mb-5 text-[13px] leading-relaxed">
+          <p className="mb-3 text-[13px] leading-relaxed">
             I am currently based in <strong>New York, NY</strong>.{' '}
             <a href="mailto:williamliu@princeton.edu" className={link}>
               Reach out
@@ -83,7 +82,7 @@ export default function Page() {
             — would love to grab coffee and talk about the future.
           </p>
 
-          <p className="mt-7 text-[11px] text-white/70">
+          <p className="text-[13px] leading-relaxed">
             © {new Date().getFullYear()} William Liu
           </p>
         </section>
