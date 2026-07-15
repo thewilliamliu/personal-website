@@ -13,13 +13,13 @@ export default function Page() {
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
         <section className="glass-card w-full max-w-lg rounded-2xl p-7 md:p-8">
-          <h1 className="mb-4 text-base font-medium tracking-tight">
+          <h1 className="mb-4 text-base font-semibold tracking-tight">
             William Liu
           </h1>
 
           <p className="mb-3 text-[13px] leading-relaxed">
             I&apos;m an undergrad studying mathematics at Princeton. Recently,
-            I&apos;ve been learning a lot about knot theory, ML, graphs, and
+            I&apos;ve been interested in knot theory, ML, graphs, and
             market-making.
           </p>
 
@@ -34,10 +34,8 @@ export default function Page() {
           </p>
 
           <p className="mb-3 text-[13px] leading-relaxed">
-            Previously, I was a nationally ranked debater and a YoungArts
-            winner in classical violin. Don&apos;t know whether it was the
-            chicken or the egg that came first, but I delved quite deeply into
-            global affairs, philosophy, and music during this time.
+            In a former life, I was a nationally ranked debater and a
+            YoungArts winner in classical violin.
           </p>
 
           <p className="mb-3 text-[13px] leading-relaxed">
