@@ -64,20 +64,14 @@ body {
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  background:
-    radial-gradient(
-      120% 90% at 50% 50%,
-      transparent 55%,
-      rgba(255, 255, 255, 0.028) 86%,
-      rgba(255, 255, 255, 0.05) 100%
-    ),
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.04) 0%,
-      transparent 22%,
-      transparent 78%,
-      rgba(255, 255, 255, 0.025) 100%
-    );
+  /* vertical-only sheen: no glow on the left/right edges */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.045) 0%,
+    transparent 18%,
+    transparent 82%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
 }
 :root[data-theme='light'] .glass-card {
   box-shadow:
@@ -86,20 +80,13 @@ body {
     inset 0 -1px 0 rgba(255, 255, 255, 0.4);
 }
 :root[data-theme='light'] .glass-card::before {
-  background:
-    radial-gradient(
-      120% 90% at 50% 50%,
-      transparent 55%,
-      rgba(255, 255, 255, 0.18) 86%,
-      rgba(255, 255, 255, 0.3) 100%
-    ),
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.25) 0%,
-      transparent 22%,
-      transparent 78%,
-      rgba(255, 255, 255, 0.15) 100%
-    );
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 18%,
+    transparent 82%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
 }
 
 /* Inline link style */
