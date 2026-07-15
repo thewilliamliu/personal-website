@@ -7,7 +7,7 @@ const li = 'mb-2.5 font-[425] text-[13px] leading-[1.32]'
 
 // TODO: replace the remaining '#' href with your real link
 const links = {
-  benefitHumanity: '#',
+  benefitHumanity: 'https://darioamodei.com/essay/machines-of-loving-grace',
   narcissism: 'https://www.youtube.com/watch?v=F3fCktnkBbc',
   jobs: 'https://www.youtube.com/watch?v=kYfNvmF0Bqw',
   collison: 'https://patrickcollison.com/advice',
