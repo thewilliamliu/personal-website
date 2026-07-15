@@ -1,4 +1,4 @@
-export const baseUrl = 'https://williamliu.vercel.app' // update after deploy
+export const baseUrl = 'https://www.wlmliu.com'
 
 export default async function sitemap() {
   return [
