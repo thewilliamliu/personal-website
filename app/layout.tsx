@@ -24,10 +24,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
-  icons: {
-    icon: "/app/icon.svg",
-    apple: "/apple-touch-icon.png",
-  },
+  // No `icons` field needed: Next auto-serves app/icon.svg,
+  // app/icon.png and app/apple-icon.png
   robots: {
     index: true,
     follow: true,
