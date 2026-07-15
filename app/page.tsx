@@ -13,7 +13,7 @@ export default function Page() {
       {/* Scroll runway: scrolling rotates the attractor while the card stays put */}
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
-        <section className="glass-card w-full max-w-sm rounded-2xl p-7 md:p-8 text-white">
+        <section className="glass-card w-full max-w-lg rounded-2xl p-7 md:p-8 text-white">
           <h1 className="mb-4 text-base font-medium tracking-tight">
             William Liu
           </h1>

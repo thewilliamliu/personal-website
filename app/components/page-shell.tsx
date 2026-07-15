@@ -14,7 +14,7 @@ export default function PageShell({
       <AizawaBackground />
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
-        <section className="glass-card w-full max-w-sm overflow-y-auto max-h-[85vh] rounded-2xl p-7 md:p-8 text-white">
+        <section className="glass-card w-full max-w-lg overflow-y-auto max-h-[85vh] rounded-2xl p-7 md:p-8 text-white">
           <h1 className="mb-4 text-base font-medium tracking-tight">{title}</h1>
           {children}
           <Link

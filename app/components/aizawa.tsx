@@ -48,11 +48,6 @@ export default function AizawaBackground() {
     const px = new Float32Array(NUM_PARTICLES)
     const py = new Float32Array(NUM_PARTICLES)
     const pz = new Float32Array(NUM_PARTICLES)
-    for (let i = 0; i < NUM_PARTICLES; i++) {
-      px[i] = 0.1 + Math.random() * 0.1
-      py[i] = Math.random() * 0.1
-      pz[i] = Math.random() * 0.1
-    }
     const step = (i: number, dt: number) => {
       const x = px[i]
       const y = py[i]
@@ -68,12 +63,57 @@ export default function AizawaBackground() {
             (x * x + y * y) * (1 + e * z) +
             f * z * x * x * x)
     }
-    // Burn in with a large dt, then desynchronize
-    for (let n = 0; n < 500; n++)
-      for (let i = 0; i < NUM_PARTICLES; i++) step(i, 0.01)
-    for (let i = 0; i < NUM_PARTICLES; i++) {
-      const extra = Math.floor(Math.random() * 800)
-      for (let n = 0; n < extra; n++) step(i, 0.01)
+    // Seed particles uniformly along a long precomputed orbit so the
+    // swarm fills the whole attractor with volume at all times,
+    // instead of bunching into a thin filament.
+    {
+      const ORBIT = 60000
+      const ox = new Float32Array(ORBIT)
+      const oy = new Float32Array(ORBIT)
+      const oz = new Float32Array(ORBIT)
+      let x = 0.1
+      let y = 0
+      let z = 0
+      const dt0 = 0.01
+      for (let n = 0; n < 3000; n++) {
+        const nx = x + dt0 * ((z - b) * x - d * y)
+        const ny = y + dt0 * (d * x + (z - b) * y)
+        const nz =
+          z +
+          dt0 *
+            (c +
+              a * z -
+              (z * z * z) / 3 -
+              (x * x + y * y) * (1 + e * z) +
+              f * z * x * x * x)
+        x = nx
+        y = ny
+        z = nz
+      }
+      for (let n = 0; n < ORBIT; n++) {
+        const nx = x + dt0 * ((z - b) * x - d * y)
+        const ny = y + dt0 * (d * x + (z - b) * y)
+        const nz =
+          z +
+          dt0 *
+            (c +
+              a * z -
+              (x * x + y * y) * (1 + e * z) -
+              (z * z * z) / 3 +
+              f * z * x * x * x)
+        x = nx
+        y = ny
+        z = nz
+        ox[n] = x
+        oy[n] = y
+        oz[n] = z
+      }
+      for (let i = 0; i < NUM_PARTICLES; i++) {
+        const j = Math.floor(Math.random() * ORBIT)
+        px[i] = ox[j]
+        py[i] = oy[j]
+        pz[i] = oz[j]
+      }
     }
 
     // Scroll drives the viewing angle
@@ -105,7 +145,8 @@ export default function AizawaBackground() {
       const ox = width / 2
       const oy = height / 2
 
-      const tilt = 0.2 + smoothT * 1.5
+      // Default view: ~45° looking up at the attractor; scroll tours from there
+      const tilt = 2.2 + smoothT * 1.5
       const angle = spin + smoothT * Math.PI * 2
 
       const cosA = Math.cos(angle)
