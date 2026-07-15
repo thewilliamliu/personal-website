@@ -26,7 +26,7 @@
 }
 
 :root[data-font='serif'] {
-  --font-body: 'Adamina', Georgia, serif;
+  --font-body: 'Lora Variable', Georgia, serif;
 }
 
 /* Serif mode gets its own typography: Newsreader runs small and
