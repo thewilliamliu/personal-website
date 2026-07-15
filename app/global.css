@@ -26,7 +26,7 @@
 }
 
 :root[data-font='serif'] {
-  --font-body: 'Newsreader Variable', Georgia, serif;
+  --font-body: 'Playfair Display Variable', 'Newsreader Variable', Georgia, serif;
 }
 
 /* Serif mode gets its own typography: Newsreader runs small and
@@ -35,13 +35,13 @@
   letter-spacing: -0.25px;
 }
 :root[data-font='serif'] p {
-  font-size: 17px !important;
+  font-size: 16px !important;
   line-height: 1.45 !important;
   font-weight: 430 !important;
 }
 :root[data-font='serif'] h1 {
-  font-size: 23px !important;
-  font-weight: 500 !important;
+  font-size: 21px !important;
+  font-weight: 550 !important;
 }
 
 ::selection {
