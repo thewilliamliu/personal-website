@@ -165,8 +165,9 @@ export default function AizawaBackground() {
       const ox = width / 2
       const oy = height / 2
 
-      // Default view: ~45° looking up at the attractor; scroll tours from there
-      const tilt = 2.2 + smoothT * 1.5
+      // Default view: top-down (flat spiral disc, stays out of the text);
+      // scrolling tilts through the 45° and edge-on views
+      const tilt = Math.PI / 2 + smoothT * 1.8
       const angle = spin + smoothT * Math.PI * 2
 
       const cosA = Math.cos(angle)
