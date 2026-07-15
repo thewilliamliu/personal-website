@@ -11,8 +11,8 @@ export default function Page() {
       <SetSpeed value={1} />
       {/* Scroll runway: scrolling rotates the attractor while the card stays put */}
       <div aria-hidden="true" className="h-[400vh]" />
-      <main className="fixed inset-0 flex items-center justify-center p-6">
-        <section className="w-full max-w-lg p-8 md:p-10">
+      <main className="fixed inset-0 flex items-center justify-center p-3 pb-16 md:p-6 md:pb-6">
+        <section className="w-full max-w-lg p-5 md:p-10">
           <h1 className="mb-3 text-[17px] font-semibold ">
             William Liu
           </h1>

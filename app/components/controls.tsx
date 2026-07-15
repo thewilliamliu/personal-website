@@ -39,7 +39,7 @@ export default function Controls({ showDial = true }: { showDial?: boolean }) {
     'ctrl flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-[13px] transition-transform hover:scale-105'
 
   return (
-    <div className="controls fixed right-6 top-6 z-10 flex flex-row items-start gap-2">
+    <div className="controls fixed bottom-5 left-1/2 z-10 flex -translate-x-1/2 flex-row items-center gap-2 md:bottom-auto md:left-auto md:right-6 md:top-6 md:translate-x-0 md:items-start">
       {showDial && <SpeedDial />}
       <Link
         href="/attractor"

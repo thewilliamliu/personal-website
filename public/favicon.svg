@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">W dice favicon</title>
+  <desc id="desc">A black outlined die with a bold centered serif W.</desc>
+  <!-- Kept deliberately simple so the design survives 16-pixel rendering. -->
+  <rect x="5" y="5" width="54" height="54" rx="12" fill="#fff" stroke="#000" stroke-width="6"/>
+  <text x="32" y="44" fill="#000" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="bold" text-anchor="middle">W</text>
+</svg>
