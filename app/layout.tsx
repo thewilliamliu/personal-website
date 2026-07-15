@@ -1,11 +1,8 @@
 import './global.css'
 import type { Metadata } from 'next'
-// Swap the font here — pick any at https://fontsource.org,
-// `npm install @fontsource-variable/<name>`, import it, and
-// update --font-sans in global.css.
-// Inter ≈ closest open font to OpenAI Sans.
+// Both fonts are self-hosted; the font toggle switches between them.
 import '@fontsource-variable/inter'
-import { GeistMono } from 'geist/font/mono'
+import '@fontsource-variable/newsreader'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { baseUrl } from './sitemap'
@@ -31,17 +28,20 @@ export const metadata: Metadata = {
   },
 }
 
+// Apply saved theme/font before first paint to avoid a flash
+const initScript = `(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;var f=localStorage.getItem('font');if(f)document.documentElement.dataset.font=f;}catch(e){}})()`
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={`bg-[#0a0a0a] text-neutral-100 ${GeistMono.variable}`}
-    >
-      <body className="antialiased font-sans">
+    <html lang="en">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: initScript }} />
+      </head>
+      <body className="antialiased">
         {children}
         <Analytics />
         <SpeedInsights />

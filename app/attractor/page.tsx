@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import AizawaBackground from 'app/components/aizawa'
+import Controls from 'app/components/controls'
 
 export const metadata = {
   title: 'The Aizawa Attractor',
@@ -8,7 +9,7 @@ export const metadata = {
 
 function Eq({ children }: { children: React.ReactNode }) {
   return (
-    <div className="font-mono text-[13px] leading-7 text-white/90">
+    <div className="font-mono text-[13px] leading-7 opacity-90">
       {children}
     </div>
   )
@@ -18,9 +19,10 @@ export default function AttractorPage() {
   return (
     <>
       <AizawaBackground />
+      <Controls />
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
-        <section className="glass-card w-full max-w-lg rounded-2xl p-7 md:p-8 text-white">
+        <section className="glass-card w-full max-w-lg rounded-2xl p-7 md:p-8">
           <h1 className="mb-4 text-base font-medium tracking-tight">
             The Aizawa Attractor
           </h1>
@@ -32,7 +34,7 @@ export default function AttractorPage() {
             Each particle follows three coupled differential equations:
           </p>
 
-          <div className="mb-3 rounded-lg bg-black/40 px-4 py-3">
+          <div className="mb-3 rounded-lg panel px-4 py-3">
             <Eq>dx/dt = (z − b)·x − d·y</Eq>
             <Eq>dy/dt = d·x + (z − b)·y</Eq>
             <Eq>dz/dt = c + a·z − z³/3 − (x² + y²)(1 + e·z) + f·z·x³</Eq>
@@ -56,7 +58,7 @@ export default function AttractorPage() {
 
           <Link
             href="/"
-            className="text-xs text-white underline decoration-white/50 underline-offset-4 transition-opacity hover:opacity-80"
+            className="lnk text-xs"
           >
             ← back home
           </Link>

@@ -2,7 +2,29 @@
 
 @theme {
   --font-sans: 'Inter Variable', system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
+}
+
+/* Theme variables */
+:root {
+  --bg: #0a0a0a;
+  --fg: #ffffff;
+  --fg-dim: rgba(255, 255, 255, 0.5);
+  --card: rgba(22, 22, 24, 0.82);
+  --panel: rgba(0, 0, 0, 0.4);
+  --font-body: 'Inter Variable', system-ui, sans-serif;
+}
+
+:root[data-theme='light'] {
+  /* warm off-white */
+  --bg: #f6f1e7;
+  --fg: #2a231a;
+  --fg-dim: rgba(42, 35, 26, 0.45);
+  --card: rgba(253, 250, 243, 0.82);
+  --panel: rgba(42, 35, 26, 0.07);
+}
+
+:root[data-font='serif'] {
+  --font-body: 'Newsreader Variable', Georgia, serif;
 }
 
 ::selection {
@@ -14,12 +36,36 @@ html {
   min-width: 360px;
   color-scheme: dark;
 }
+:root[data-theme='light'] {
+  color-scheme: light;
+}
 
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+}
+
+/* Frosted card: mostly opaque fill + blur so text stays crisp */
 .glass-card {
-  /* Justin-style frosted card: mostly opaque dark fill + blur,
-     so text stays crisp over the animation */
-  background: rgba(22, 22, 24, 0.82);
+  background: var(--card);
   backdrop-filter: blur(24px) saturate(120%);
   -webkit-backdrop-filter: blur(24px) saturate(120%);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Inline link style */
+.lnk {
+  text-decoration: underline;
+  text-decoration-color: var(--fg-dim);
+  text-underline-offset: 4px;
+  transition: opacity 0.15s;
+}
+.lnk:hover {
+  opacity: 0.75;
+}
+
+/* Panel (e.g. equation box) */
+.panel {
+  background: var(--panel);
 }

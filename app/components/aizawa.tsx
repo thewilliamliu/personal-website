@@ -29,10 +29,30 @@ export default function AizawaBackground() {
     let raf = 0
     let speed = 1
 
+    // Theme-aware colors
+    const themes = {
+      dark: { bg: '#0a0a0a', trail: 'rgba(10, 10, 10, 0.18)', dot: '225, 230, 240' },
+      light: { bg: '#f6f1e7', trail: 'rgba(246, 241, 231, 0.18)', dot: '70, 58, 45' },
+    }
+    let colors =
+      document.documentElement.dataset.theme === 'light'
+        ? themes.light
+        : themes.dark
+
     const onSpeed = (ev: Event) => {
       speed = (ev as CustomEvent<number>).detail
     }
     window.addEventListener('aizawa-speed', onSpeed)
+
+    const onTheme = (ev: Event) => {
+      colors =
+        (ev as CustomEvent<string>).detail === 'light'
+          ? themes.light
+          : themes.dark
+      ctx.fillStyle = colors.bg
+      ctx.fillRect(0, 0, width, height)
+    }
+    window.addEventListener('site-theme', onTheme)
 
     const resize = () => {
       width = window.innerWidth
@@ -138,7 +158,7 @@ export default function AizawaBackground() {
       smoothT += (scrollT - smoothT) * 0.06
 
       // Trail fade
-      ctx.fillStyle = 'rgba(10, 10, 10, 0.18)'
+      ctx.fillStyle = colors.trail
       ctx.fillRect(0, 0, width, height)
 
       const scale = Math.min(width, height) * 0.42
@@ -166,7 +186,7 @@ export default function AizawaBackground() {
         const sx = ox + rx * scale
         const sy = oy - tz * scale
         const alpha = Math.max(0.12, Math.min(0.7, (ty + 2) / 4))
-        ctx.fillStyle = `rgba(225, 230, 240, ${alpha})`
+        ctx.fillStyle = `rgba(${colors.dot}, ${alpha})`
         const size = ty > 0 ? 1.7 : 1
         ctx.fillRect(sx, sy, size, size)
       }
@@ -174,7 +194,7 @@ export default function AizawaBackground() {
       spin += 0.00024 * speed
       if (!prefersReduced) raf = requestAnimationFrame(draw)
     }
-    ctx.fillStyle = '#0a0a0a'
+    ctx.fillStyle = colors.bg
     ctx.fillRect(0, 0, width, height)
     draw()
 
@@ -183,6 +203,7 @@ export default function AizawaBackground() {
       window.removeEventListener('resize', resize)
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('aizawa-speed', onSpeed)
+      window.removeEventListener('site-theme', onTheme)
     }
   }, [])
 

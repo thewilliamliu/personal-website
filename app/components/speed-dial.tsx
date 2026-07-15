@@ -6,9 +6,8 @@ import { useRouter } from 'next/navigation'
 const MIN = 0
 const MAX = 3
 
-// A small circular dial in the corner.
-// Drag up/down to change the animation speed; a plain click
-// (no drag) opens the /attractor page.
+// A small circular dial. Drag up/down to change the animation speed;
+// a plain click (no drag) opens the /attractor page.
 export default function SpeedDial() {
   const [speed, setSpeed] = useState(1)
   const dragging = useRef(false)
@@ -45,7 +44,7 @@ export default function SpeedDial() {
   const angle = -120 + ((speed - MIN) / (MAX - MIN)) * 240
 
   return (
-    <div className="fixed right-6 top-6 z-10 flex flex-col items-center gap-1.5 select-none">
+    <div className="flex flex-col items-center gap-1.5 select-none">
       <div
         role="slider"
         aria-label="Animation speed (click for details)"
@@ -62,7 +61,7 @@ export default function SpeedDial() {
           if (ev.key === 'Enter') router.push('/attractor')
         }}
         className="glass-card flex h-12 w-12 cursor-pointer items-center justify-center rounded-full transition-transform hover:scale-105"
-        title="Drag to change speed · click to learn about the attractor"
+        title="Drag to change speed · click to see the math"
       >
         <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
           {/* tick marks */}
@@ -73,7 +72,8 @@ export default function SpeedDial() {
               y1="4"
               x2="17"
               y2="7"
-              stroke="rgba(255,255,255,0.45)"
+              stroke="currentColor"
+              strokeOpacity="0.45"
               strokeWidth="1"
               transform={`rotate(${t} 17 17)`}
             />
@@ -84,16 +84,16 @@ export default function SpeedDial() {
             y1="17"
             x2="17"
             y2="6"
-            stroke="white"
+            stroke="currentColor"
             strokeWidth="1.5"
             strokeLinecap="round"
             transform={`rotate(${angle} 17 17)`}
             style={{ transition: dragging.current ? 'none' : 'transform .2s' }}
           />
-          <circle cx="17" cy="17" r="1.8" fill="white" />
+          <circle cx="17" cy="17" r="1.8" fill="currentColor" />
         </svg>
       </div>
-      <span className="font-mono text-[10px] text-white/60">
+      <span className="font-mono text-[10px] opacity-60">
         {speed.toFixed(1)}x
       </span>
     </div>
