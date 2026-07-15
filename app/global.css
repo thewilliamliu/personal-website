@@ -26,7 +26,7 @@
 }
 
 :root[data-font='serif'] {
-  --font-body: 'Instrument Serif', 'Newsreader Variable', Georgia, serif;
+  --font-body: 'Playfair Display Variable', 'Newsreader Variable', Georgia, serif;
 }
 
 /* Serif mode gets its own typography: Newsreader runs small and

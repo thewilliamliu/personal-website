@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 // Both fonts are self-hosted; the font toggle switches between them.
 import '@fontsource-variable/inter'
 import '@fontsource-variable/newsreader'
-import '@fontsource/instrument-serif'
+import '@fontsource-variable/playfair-display'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { baseUrl } from './sitemap'
