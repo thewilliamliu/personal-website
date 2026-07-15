@@ -13,18 +13,18 @@ export default function Page() {
       {/* Scroll runway: scrolling rotates the attractor while the card stays put */}
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
-        <section className="glass-card w-full max-w-md rounded-2xl p-7 md:p-8 text-white">
-          <h1 className="mb-4 text-lg font-medium tracking-tight">
+        <section className="glass-card w-full max-w-2xl rounded-2xl p-7 md:p-8 text-white">
+          <h1 className="mb-4 text-base font-medium tracking-tight">
             William Liu
           </h1>
 
-          <p className="mb-3 text-sm leading-relaxed">
+          <p className="mb-3 text-[13px] leading-relaxed">
             I&apos;m an undergrad studying mathematics at Princeton. Recently,
             I&apos;ve been learning a lot about knot theory, ML, graphs, and
             market-making.
           </p>
 
-          <p className="mb-3 text-sm leading-relaxed">
+          <p className="mb-3 text-[13px] leading-relaxed">
             Big picture, I&apos;m excited about technological advancement, and
             I aim to be a part of it. My hope is that this site can be a place
             where the resume steps back and my more overarching ideas come
@@ -35,14 +35,14 @@ export default function Page() {
             are a list of things that inspire me.
           </p>
 
-          <p className="mb-3 text-sm leading-relaxed">
+          <p className="mb-3 text-[13px] leading-relaxed">
             Previously, I was a nationally ranked debater and a YoungArts
             winner in classical violin. Don&apos;t know whether it was the
             chicken or the egg that came first, but I became pretty interested
             in global affairs, philosophy, and music during this time.
           </p>
 
-          <p className="mb-3 text-sm leading-relaxed">
+          <p className="mb-3 text-[13px] leading-relaxed">
             In my spare hours, I chip away at my{' '}
             <Link href="/reading" className={link}>
               reading list
@@ -54,7 +54,7 @@ export default function Page() {
             .
           </p>
 
-          <p className="mb-3 text-sm leading-relaxed">
+          <p className="mb-3 text-[13px] leading-relaxed">
             You can{' '}
             <a
               href="https://thewilliamliu.substack.com"
@@ -75,7 +75,7 @@ export default function Page() {
             .
           </p>
 
-          <p className="mb-5 text-sm leading-relaxed">
+          <p className="mb-5 text-[13px] leading-relaxed">
             I am currently based in <strong>New York, NY</strong>.{' '}
             <a href="mailto:williamliu@princeton.edu" className={link}>
               Reach out

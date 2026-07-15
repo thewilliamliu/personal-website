@@ -2,8 +2,9 @@ import './global.css'
 import type { Metadata } from 'next'
 // Swap the font here — pick any at https://fontsource.org,
 // `npm install @fontsource-variable/<name>`, import it, and
-// update --font-serif in global.css.
-import '@fontsource-variable/newsreader'
+// update --font-sans in global.css.
+// Inter ≈ closest open font to OpenAI Sans.
+import '@fontsource-variable/inter'
 import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
@@ -40,7 +41,7 @@ export default function RootLayout({
       lang="en"
       className={`bg-[#0a0a0a] text-neutral-100 ${GeistMono.variable}`}
     >
-      <body className="antialiased font-serif">
+      <body className="antialiased font-sans">
         {children}
         <Analytics />
         <SpeedInsights />

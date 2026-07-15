@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-serif: 'Newsreader Variable', Georgia, serif;
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
 }
 
