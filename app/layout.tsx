@@ -7,6 +7,7 @@ import '@fontsource-variable/lora'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { baseUrl } from './sitemap'
+import AizawaBackground from 'app/components/aizawa'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -44,6 +45,8 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: initScript }} />
       </head>
       <body className="antialiased">
+        {/* Mounted in the layout so it persists across page navigation */}
+        <AizawaBackground />
         {children}
         <Analytics />
         <SpeedInsights />

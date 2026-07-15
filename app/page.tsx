@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import AizawaBackground from 'app/components/aizawa'
 import Controls from 'app/components/controls'
 
 const link = 'lnk'
@@ -7,7 +6,6 @@ const link = 'lnk'
 export default function Page() {
   return (
     <>
-      <AizawaBackground />
       <Controls showDial />
       {/* Scroll runway: scrolling rotates the attractor while the card stays put */}
       <div aria-hidden="true" className="h-[400vh]" />

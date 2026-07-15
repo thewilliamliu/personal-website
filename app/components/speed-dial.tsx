@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-const MIN = 0
+const MIN = 0.1
 const MAX = 3
 
 // A small circular dial. Drag up/down to change the animation speed;

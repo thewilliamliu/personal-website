@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import AizawaBackground from 'app/components/aizawa'
 import Controls from 'app/components/controls'
 
 // Shared layout: attractor background + centered glass card.
@@ -12,7 +11,6 @@ export default function PageShell({
 }) {
   return (
     <>
-      <AizawaBackground />
       <Controls />
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
