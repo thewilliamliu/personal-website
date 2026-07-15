@@ -40,7 +40,7 @@ export default function RootLayout({
 }) {
   return (
     // suppressHydrationWarning: theme/font attrs are set pre-paint from localStorage
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-font="serif" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: initScript }} />
       </head>

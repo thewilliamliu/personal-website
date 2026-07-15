@@ -6,7 +6,7 @@ import SpeedDial from 'app/components/speed-dial'
 
 // Top-right control cluster: speed dial (optional) with a "see the math"
 // hint, plus theme and font toggles. Preferences persist in localStorage.
-export default function Controls({ showDial = false }: { showDial?: boolean }) {
+export default function Controls({ showDial = true }: { showDial?: boolean }) {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark')
   const [font, setFont] = useState<'sans' | 'serif'>('sans')
 
@@ -47,7 +47,7 @@ export default function Controls({ showDial = false }: { showDial?: boolean }) {
         aria-label="The math behind the background"
         title="The math behind the background"
       >
-        <span className="text-[15px] leading-none">∫</span>
+        <span className="relative -top-[1px] text-[15px] leading-none">∫</span>
       </Link>
       <button
         type="button"
@@ -78,11 +78,11 @@ export default function Controls({ showDial = false }: { showDial?: boolean }) {
         style={{
           fontFamily:
             font === 'sans'
-              ? "'Newsreader Variable', Georgia, serif"
+              ? "'Lora Variable', Georgia, serif"
               : "-apple-system, BlinkMacSystemFont, sans-serif",
         }}
       >
-        Aa
+        <span className="leading-none">Aa</span>
       </button>
     </div>
   )

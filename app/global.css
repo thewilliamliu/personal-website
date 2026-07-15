@@ -104,8 +104,8 @@ body {
 /* Small control buttons: need more contrast than the big card */
 .ctrl {
   background: rgba(44, 44, 48, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  border: none;
+  outline: none;
 }
 :root[data-theme='light'] .ctrl {
   background: rgba(228, 224, 216, 0.9);

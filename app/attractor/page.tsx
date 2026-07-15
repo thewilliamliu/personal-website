@@ -6,31 +6,9 @@ export const metadata = {
   description: 'The equations behind the animation in the background.',
 }
 
-// Typeset math without a LaTeX runtime: serif italics + stacked fractions
-const mathFont = {
-  fontFamily: "'STIX Two Math', 'Cambria Math', 'Times New Roman', serif",
-}
-
-function V({ children }: { children: React.ReactNode }) {
-  return <i>{children}</i>
-}
-
-function Frac({ n, d }: { n: React.ReactNode; d: React.ReactNode }) {
-  return (
-    <span className="mx-0.5 inline-flex flex-col items-center align-middle text-[11px] leading-[1.15]">
-      <span className="border-b border-current px-1">{n}</span>
-      <span className="px-1">{d}</span>
-    </span>
-  )
-}
-
-function Sup({ children }: { children: React.ReactNode }) {
-  return <sup className="text-[9px]">{children}</sup>
-}
-
 function Eq({ children }: { children: React.ReactNode }) {
   return (
-    <div className="my-2 text-[14px]" style={mathFont}>
+    <div className="font-mono text-[13px] leading-7 opacity-90">
       {children}
     </div>
   )
@@ -54,24 +32,10 @@ export default function AttractorPage() {
             Each particle follows three coupled differential equations:
           </p>
 
-          <div className="panel mb-4 rounded-lg px-5 py-3">
-            <Eq>
-              <Frac n={<>d<V>x</V></>} d={<>d<V>t</V></>} /> = (<V>z</V> −{' '}
-              <V>b</V>)<V>x</V> − <V>d</V>&#8202;<V>y</V>
-            </Eq>
-            <Eq>
-              <Frac n={<>d<V>y</V></>} d={<>d<V>t</V></>} /> = <V>d</V>&#8202;
-              <V>x</V> + (<V>z</V> − <V>b</V>)<V>y</V>
-            </Eq>
-            <Eq>
-              <Frac n={<>d<V>z</V></>} d={<>d<V>t</V></>} /> = <V>c</V> +{' '}
-              <V>a</V>&#8202;<V>z</V> −{' '}
-              <Frac n={<><V>z</V><Sup>3</Sup></>} d={<>3</>} /> − (<V>x</V>
-              <Sup>2</Sup> + <V>y</V>
-              <Sup>2</Sup>)(1 + <V>e</V>&#8202;<V>z</V>) + <V>f</V>&#8202;
-              <V>z</V>&#8202;<V>x</V>
-              <Sup>3</Sup>
-            </Eq>
+          <div className="panel mb-4 rounded-lg px-4 py-3">
+            <Eq>dx/dt = (z − b)·x − d·y</Eq>
+            <Eq>dy/dt = d·x + (z − b)·y</Eq>
+            <Eq>dz/dt = c + a·z − z³/3 − (x² + y²)(1 + e·z) + f·z·x³</Eq>
           </div>
 
           <p className="mb-4 font-[425] text-[13px] leading-[1.32]">
