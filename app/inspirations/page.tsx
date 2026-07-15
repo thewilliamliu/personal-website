@@ -5,19 +5,19 @@ export const metadata = { title: 'A Blueprint for Life' }
 const p = 'mb-4 font-[425] text-[13px] leading-[1.32]'
 const li = 'mb-2.5 font-[425] text-[13px] leading-[1.32]'
 
-// TODO: replace '#' hrefs with your real links
+// TODO: replace the remaining '#' href with your real link
 const links = {
   benefitHumanity: '#',
   narcissism: 'https://www.youtube.com/watch?v=F3fCktnkBbc',
-  jobs: '#',
+  jobs: 'https://www.youtube.com/watch?v=kYfNvmF0Bqw',
   collison: 'https://patrickcollison.com/advice',
-  voyager: 'https://voyager.jpl.nasa.gov/golden-record/',
-  game4: '#',
-  falconHeavy: '#',
-  amodei: 'https://darioamodei.com/machines-of-loving-grace',
-  faust: '#',
-  bigHero6: '#',
-  op131: '#',
+  voyager: 'https://www.youtube.com/watch?v=NAN1kt4SG9E',
+  game4: 'https://www.youtube.com/watch?v=dcf8UW7cMOI',
+  falconHeavy: 'https://www.youtube.com/watch?v=A0FZIwabctw',
+  amodei: 'https://darioamodei.com/essay/machines-of-loving-grace',
+  faust: 'https://thewilliamliu.substack.com/about',
+  bigHero6: 'https://www.youtube.com/watch?v=Y4o_8zbelwY',
+  op131: 'https://www.youtube.com/watch?v=Y4o_8zbelwY',
 }
 
 function A({ href, children }: { href: string; children: React.ReactNode }) {
