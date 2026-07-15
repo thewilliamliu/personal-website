@@ -37,7 +37,8 @@
 :root[data-font='serif'] main > section {
   max-width: 36rem; /* slightly wider than the sans max-w-lg (32rem) */
 }
-:root[data-font='serif'] p {
+:root[data-font='serif'] p,
+:root[data-font='serif'] li {
   font-size: 15px !important;
   line-height: 1.45 !important;
   font-weight: 430 !important;
