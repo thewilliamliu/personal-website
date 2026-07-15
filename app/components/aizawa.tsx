@@ -165,9 +165,9 @@ export default function AizawaBackground() {
       const ox = width / 2
       const oy = height / 2
 
-      // Default view: top-down (flat spiral disc, stays out of the text);
-      // scrolling tilts through the 45° and edge-on views
-      const tilt = Math.PI / 2 + smoothT * 1.8
+      // Default view: side-on sphere with the central funnel visible;
+      // scrolling tilts through the other views
+      const tilt = Math.PI + smoothT * 1.8
       const angle = spin + smoothT * Math.PI * 2
 
       const cosA = Math.cos(angle)
