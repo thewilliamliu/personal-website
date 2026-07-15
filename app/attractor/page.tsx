@@ -23,7 +23,7 @@ export default function AttractorPage() {
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
         <section className="glass-card w-full max-w-lg rounded-[28px] p-8 md:p-10">
-          <h1 className="mb-4 text-[17px] font-extrabold tracking-tight">
+          <h1 className="mb-4 text-[17px] font-[650] tracking-[0.04em]">
             The Aizawa Attractor
           </h1>
 
