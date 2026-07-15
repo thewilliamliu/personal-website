@@ -18,7 +18,7 @@
 
 :root[data-theme='light'] {
   /* warm off-white */
-  --bg: #f6f1e7;
+  --bg: #efece5;
   --fg: #2a231a;
   --fg-dim: rgba(42, 35, 26, 0.45);
   --card: rgba(253, 250, 243, 0.82);
