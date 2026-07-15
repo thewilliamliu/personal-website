@@ -54,7 +54,7 @@ export default function AttractorPage() {
             per second.
           </p>
 
-          <Link href="/" className="lnk text-xs">
+          <Link href="/" className="lnk text-[13px]">
             ← back home
           </Link>
         </section>

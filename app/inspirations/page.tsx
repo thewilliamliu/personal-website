@@ -36,7 +36,7 @@ function A({ href, children }: { href: string; children: React.ReactNode }) {
 export default function Page() {
   return (
     <PageShell title="A Blueprint for Life">
-      <p className="mb-4 text-[12px] italic opacity-70">
+      <p className="mb-4 text-[13px] italic opacity-70">
         Last updated: June 2026
       </p>
 

@@ -48,7 +48,7 @@ export default function Page() {
         <Book key={t} title={t} author={a} />
       ))}
 
-      <p className="mt-4 font-[425] text-[12px] leading-[1.32] opacity-70">
+      <p className="mt-4 font-[425] text-[13px] leading-[1.32] opacity-70">
         *read in Latin
       </p>
     </PageShell>

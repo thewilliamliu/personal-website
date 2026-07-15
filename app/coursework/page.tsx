@@ -34,7 +34,7 @@ export default function Page() {
           ))}
         </div>
       ))}
-      <p className="mt-4 font-[425] text-[12px] leading-[1.32] opacity-70">
+      <p className="mt-4 font-[425] text-[13px] leading-[1.32] opacity-70">
         *In progress or subject to change.
       </p>
     </PageShell>
