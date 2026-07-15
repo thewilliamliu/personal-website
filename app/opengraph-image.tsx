@@ -14,7 +14,7 @@ export const alt = "William Liu — Personal Website";
 
 export default async function OpenGraphImage() {
   const faviconFile = await readFile(
-    join(process.cwd(), "public", "favicon.svg"),
+    join(process.cwd(), "app", "favicon.svg"),
   );
 
   const favicon = `data:image/svg+xml;base64,${faviconFile.toString("base64")}`;
