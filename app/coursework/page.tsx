@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <PageShell title="Coursework">
       {/* Add your courses here */}
-      <p className="mb-4 text-[14px] leading-[1.35]">
+      <p className="mb-4 text-[12px] leading-[1.3]">
         Placeholder — relevant coursework in math, CS, and beyond.
       </p>
     </PageShell>

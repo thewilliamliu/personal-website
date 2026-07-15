@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <PageShell title="Things That Inspire Me">
       {/* Add your list here */}
-      <p className="mb-4 text-[14px] leading-[1.35]">
+      <p className="mb-4 text-[12px] leading-[1.3]">
         Placeholder — a list of people, ideas, essays, and works that inspire
         me.
       </p>
