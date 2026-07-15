@@ -17,7 +17,7 @@ export default function PageShell({
       <div aria-hidden="true" className="h-[400vh]" />
       <main className="fixed inset-0 flex items-center justify-center p-6">
         <section className="w-full max-w-lg overflow-y-auto max-h-[85vh] p-8 md:p-10">
-          <h1 className="mb-3 text-[17px] font-[650] ">{title}</h1>
+          <h1 className="mb-3 text-[17px] font-semibold ">{title}</h1>
           {children}
           <Link
             href="/"
