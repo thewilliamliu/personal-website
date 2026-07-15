@@ -34,8 +34,11 @@
 :root[data-font='serif'] body {
   letter-spacing: -0.25px;
 }
+:root[data-font='serif'] main > section {
+  max-width: 36rem; /* slightly wider than the sans max-w-lg (32rem) */
+}
 :root[data-font='serif'] p {
-  font-size: 16px !important;
+  font-size: 15px !important;
   line-height: 1.45 !important;
   font-weight: 430 !important;
 }
