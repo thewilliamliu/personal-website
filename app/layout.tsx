@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     default: 'William Liu',
     template: '%s | William Liu',
   },
-  description: 'Personal website of William Liu.',
+  description: 'And thence we came forth, to rebehold the stars.',
   openGraph: {
     title: 'William Liu',
-    description: 'Personal website of William Liu.',
+    description: 'And thence we came forth, to rebehold the stars.',
     url: baseUrl,
     siteName: 'William Liu',
     locale: 'en_US',
