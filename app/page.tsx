@@ -73,7 +73,7 @@ export default function Page() {
           </p>
 
           <p className="mb-4 font-[425] text-[13px] leading-[1.32]">
-            I am currently based in <strong>New York, NY</strong>.{' '}
+            I am currently based in <strong>Princeton, NJ</strong>.{' '}
             <a href="mailto:williamliu@princeton.edu" className={link}>
               Reach out
             </a>{' '}
