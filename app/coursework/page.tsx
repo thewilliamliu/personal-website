@@ -6,15 +6,15 @@ export const metadata = { title: 'Coursework' }
 const groups: [string, string][][] = [
   [
     ['MAT 345', 'Abstract Algebra*'],
+    ['MAT 385', 'Probability Theory*'],
     ['MAT 215', 'Real Analysis'],
     ['MAT 217', 'Linear Algebra'],
     ['MAT 203', 'Vector Calculus'],
   ],
   [
     ['COS 226', 'Algorithms and Data Structures'],
-    ['ECE 435', 'Machine Learning and Pattern Recognition*'],
+    ['PHY 207', 'Classical and Quantum Mechanics*'],
   ],
-  [['PHY 207', 'Classical and Quantum Mechanics*']],
   [
     ['HIS 369', 'European Intellectual History'],
     ['HUM 418', 'The Faust Tradition'],
